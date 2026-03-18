@@ -1,0 +1,10 @@
+PyMuPDF>=1.24.0
+pydantic>=2.8.0
+PyYAML>=6.0.1
+rapidfuzz>=3.9.0
+sentence-transformers>=3.0.0
+rdflib>=7.0.0
+pyshacl>=0.26.0
+requests>=2.32.0
+python-dotenv>=1.0.1
+numpy>=1.26.0

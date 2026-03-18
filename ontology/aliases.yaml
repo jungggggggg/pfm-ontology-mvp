@@ -1,0 +1,32 @@
+aliases:
+  phase-field model: PFM
+  phase field model: PFM
+  phase-field method: PFM
+  phase field method: PFM
+  multiphase-field model: Multi-Phase-Field Model
+  multi-phase-field model: Multi-Phase-Field Model
+  allen-cahn equation: Allen-Cahn
+  allen cahn equation: Allen-Cahn
+  cahn-hilliard equation: Cahn-Hilliard
+  cahn hilliard equation: Cahn-Hilliard
+  finite difference method: Finite Difference Method
+  finite element method: Finite Element Method
+  spectral method: Spectral Method
+  order parameter: Order Parameter
+  phase fraction: Phase Fraction
+  free energy: Free Energy
+  bulk free energy: Bulk Free Energy
+  gradient energy: Gradient Energy
+  chemical free energy: Chemical Free Energy
+  diffusion coefficient: Diffusion Coefficient
+  interfacial energy: Interfacial Energy
+  interface energy: Interfacial Energy
+  interface width: Interface Width
+  anisotropy coefficient: Anisotropy Coefficient
+  mobility coefficient: Mobility
+  mobility: Mobility
+  grain growth: Grain Growth
+  dendritic growth: Dendritic Growth
+  spinodal decomposition: Spinodal Decomposition
+  coarsening: Coarsening
+  solidification: Solidification

@@ -1,0 +1,60 @@
+classes:
+  - label: Paper
+    description: PFM 관련 논문 또는 전공서적 문서 단위
+  - label: SimulationType
+    description: 수행되는 시뮬레이션 유형
+  - label: MaterialSystem
+    description: 합금계, 재료계, 상 구성 등 재료 시스템
+  - label: GoverningEquation
+    description: Allen-Cahn, Cahn-Hilliard 등 지배방정식
+  - label: PhaseFieldVariable
+    description: order parameter, phase fraction 등 위상장 변수
+  - label: FreeEnergyTerm
+    description: bulk, gradient, chemical free energy 등 자유에너지 항
+  - label: Parameter
+    description: mobility, interface width, diffusion coefficient 등 파라미터
+  - label: BoundaryCondition
+    description: 경계조건
+  - label: InitialCondition
+    description: 초기조건
+  - label: NumericalMethod
+    description: finite difference, finite element, spectral method 등 수치기법
+  - label: PhysicalPhenomenon
+    description: dendritic growth, grain growth, coarsening 등 물리현상
+  - label: OutputMetric
+    description: grain size, interface velocity 등 출력지표
+
+relations:
+  - label: describes
+    domain: Paper
+    range: SimulationType
+  - label: appliedToMaterial
+    domain: SimulationType
+    range: MaterialSystem
+  - label: usesEquation
+    domain: SimulationType
+    range: GoverningEquation
+  - label: hasVariable
+    domain: GoverningEquation
+    range: PhaseFieldVariable
+  - label: hasFreeEnergyTerm
+    domain: GoverningEquation
+    range: FreeEnergyTerm
+  - label: hasParameter
+    domain: GoverningEquation
+    range: Parameter
+  - label: hasBoundaryCondition
+    domain: SimulationType
+    range: BoundaryCondition
+  - label: hasInitialCondition
+    domain: SimulationType
+    range: InitialCondition
+  - label: usesNumericalMethod
+    domain: SimulationType
+    range: NumericalMethod
+  - label: modelsPhenomenon
+    domain: SimulationType
+    range: PhysicalPhenomenon
+  - label: predictsOutput
+    domain: SimulationType
+    range: OutputMetric
