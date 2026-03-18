@@ -1,7 +1,5 @@
 from __future__ import annotations
 
-from pathlib import Path
-
 from .settings import (
     RAW_DIR,
     PARSED_DIR,
@@ -10,12 +8,14 @@ from .settings import (
     NORMALIZED_DIR,
     EXTRACTOR,
     OPENAI_API_KEY,
+    LOCAL_LLM_MODEL_PATH,
     MAX_CHUNKS_PER_DOC,
 )
 from .pdf_parser import PDFParser
 from .chunker import SimpleChunker
 from .extractors.rule_based import RuleBasedExtractor
 from .extractors.llm_openai import OpenAICompatibleExtractor
+from .extractors.llm_local import LocalHFExtractor
 from .normalize import Normalizer
 from .ontology_store import OntologyStore
 from .rdf_export import RDFExporter
@@ -32,10 +32,14 @@ class Pipeline:
         self.extractor = self._choose_extractor()
 
     def _choose_extractor(self):
+        if EXTRACTOR == "local_llm":
+            return LocalHFExtractor()
         if EXTRACTOR == "llm":
             return OpenAICompatibleExtractor()
         if EXTRACTOR == "rule":
             return RuleBasedExtractor()
+        if LOCAL_LLM_MODEL_PATH:
+            return LocalHFExtractor()
         if OPENAI_API_KEY:
             return OpenAICompatibleExtractor()
         return RuleBasedExtractor()
@@ -64,6 +68,7 @@ class Pipeline:
                 bundle = self.extractor.extract(chunk)
                 all_nodes.extend(bundle.nodes)
                 all_edges.extend(bundle.edges)
+
             candidate_bundle = {
                 "paper_id": parsed.paper_id,
                 "nodes": [n.model_dump() for n in all_nodes],

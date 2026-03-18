@@ -23,7 +23,16 @@ for path in [RAW_DIR, PARSED_DIR, CHUNKS_DIR, CANDIDATES_DIR, NORMALIZED_DIR, ST
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY", "")
 OPENAI_BASE_URL = os.getenv("OPENAI_BASE_URL", "https://api.openai.com/v1")
 OPENAI_MODEL = os.getenv("OPENAI_MODEL", "gpt-4.1-mini")
+
 EXTRACTOR = os.getenv("EXTRACTOR", "auto").strip().lower()
+
+# Local LLM
+LOCAL_LLM_MODEL_PATH = os.getenv("LOCAL_LLM_MODEL_PATH", "").strip()
+LOCAL_LLM_TORCH_DTYPE = os.getenv("LOCAL_LLM_TORCH_DTYPE", "bfloat16").strip().lower()
+LOCAL_LLM_MAX_NEW_TOKENS = int(os.getenv("LOCAL_LLM_MAX_NEW_TOKENS", "900"))
+LOCAL_LLM_TEMPERATURE = float(os.getenv("LOCAL_LLM_TEMPERATURE", "0.1"))
+LOCAL_LLM_TOP_P = float(os.getenv("LOCAL_LLM_TOP_P", "0.9"))
+
 EMBEDDING_MODEL = os.getenv(
     "EMBEDDING_MODEL",
     "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
